@@ -1,0 +1,38 @@
+{% extends "!layout.html" %}
+
+{%- block rootrellink %}
+<li><a href="{{ pathto(master_doc) }}">{{"Language Binding Project"}}</a>{{ reldelim1 }}</li>
+{%- endblock %}
+
+{%- block sidebarsearch %}
+    {%- if pagename != "search" %}
+    <div id="searchbox" style="display: none">
+    <h3>{{ _('Quick search') }}</h3>
+      <form class="search" action="{{ pathto('search') }}" method="get">
+        <input type="text" name="q" size="18" />
+        <input type="submit" value="{{ _('Go') }}" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+      {% include "left_ad_unit.html" %}
+    </div>
+    <script type="text/javascript">$('#searchbox').show(0);</script>
+    {%- endif %}
+{%- endblock %}
+
+{%- block document %}
+      <div class="documentwrapper">
+      {%- if not embedded %}{% if not theme_nosidebar|tobool %}
+        <div class="bodywrapper">
+      {%- endif %}{% endif %}
+          <div class="body">
+            {% block body %} {% endblock %} 
+            <hr width=60%>
+            {% include "bottom_ad_unit.html" %}
+            {% include "in_text_ads.html" %}
+          </div>
+      {%- if not embedded %}{% if not theme_nosidebar|tobool %}
+        </div>
+      {%- endif %}{% endif %}
+      </div>
+{%- endblock %}

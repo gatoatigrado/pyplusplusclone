@@ -1,0 +1,55 @@
+Hello!
+
+I'm pleased to announce the 0.9.0 release of Py++.
+
+What is Py++?
+=============
+
+Py++ is an object-oriented framework for creating a code generator for
+Boost.Python library.
+
+Where is Py++?
+==============
+
+Site: http://language-binding.net/pyplusplus/pyplusplus.html
+
+Download: http://language-binding.net/pyplusplus/download.html
+
+What's new?
+===========
+
+Features
+--------
+
+* Added exposing of copy constructor, ``operator=`` and ``operator<<``.
+   * ``operator=`` is exposed under "assign" name
+   * ``operator<<`` is exposed under "__str__" name
+
+* Added new call policies:
+    * as_tuple
+    * custom_call_policies
+    * return_range
+
+* Added an initial support for multi-module development. Now you can mark your
+  declarations as ``already_exposed`` and `Py++`_ will do the rest.
+
+* `input_c_buffer`_ - new functions transformation, which allows to pass a Python
+  sequence to C++ function, instead of pair of arguments: pointer to buffer and size.
+
+* Added ability to control generated "include" directives. Now you can ask Py++
+  to include a header file, when it generates code for some declaration.
+
+* Code generation improvements: system header files (Boost.Python or Py++ defined)
+  will be included from the generated files only in case the generated code
+  depends on them.
+
+* Performance: Py++ runs 1.5 - 2 times faster.
+
+* Py++ will generate documentation for automatically constructed properties.
+
+* Added iteration functionality to Boost.Python Indexing Suite V2 ``std::map``
+  and ``std::multimap`` containers.
+
+
+For a more complete list, with links to documentation, please see the news:
+http://language-binding.net/pyplusplus/history/history.html

@@ -1,0 +1,32 @@
+#textcha {
+    font-size: 100%;
+    margin-top: 0.5em;
+    border: 2px solid #FF8888;
+    color: black;
+    vertical-align: middle;
+    padding: 3px 2px;
+}
+
+#textcha-answer {
+    border: 2px solid #000000;
+    padding: 3px 2px;
+}
+
+form{
+	max-width: 19cm;
+}
+
+textarea{
+	margin-top: 2mm;
+	margin-right: 2mm;
+	margin-left: 2mm;
+	margin-bottom: 2mm;
+}
+
+input{
+	margin-top: 2mm;
+	margin-right: 2mm;
+	margin-left: 2mm;
+	margin-bottom: 2mm;
+}
+

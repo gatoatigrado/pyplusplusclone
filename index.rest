@@ -1,0 +1,50 @@
+==============================
+C\\C++ Python language binding
+==============================
+
+----------------
+pygccxml package
+----------------
+
+* Do you need to parse C++ code?
+* Do you need to build code generator?
+* Do you need to create UML diagram?
+
+:doc:`pygccxml <pygccxml/pygccxml>` is the way to go! :doc:`Learn more <pygccxml/pygccxml>`.
+
+------------
+Py++ package
+------------
+
+"I love deadlines. I love the whooshing noise they make as they go by."
+  -- Douglas Adams
+
+Meet your deadlines with powerful code generator engine - :doc:`Py++ <pyplusplus/pyplusplus>`.
+
+:doc:`Py++ <pyplusplus/pyplusplus>`, `ctypes <http://docs.python.org/library/ctypes.html>`_
+and `Boost.Python <http://www.boost.org/doc/libs/1_38_0/libs/python/doc/index.html>`_
+provide a complete solution for interfacing Python and C\\C++.
+:doc:`Learn more <pyplusplus/pyplusplus>`.
+
+*European Space Agency*, *Ogre*, *PyOpenSG* and many others :doc:`use <pyplusplus/quotes>` `Py++`.
+
+-------------
+pydsc package
+-------------
+
+Documentation strings contain spelling errors? :doc:`Fix them in a minute <pydsc/pydsc>`!
+
+.. toctree::
+   :hidden:
+
+   pydsc/pydsc.rest
+   pygccxml/pygccxml.rest
+   pyplusplus/pyplusplus.rest
+
+------------------
+Indices and tables
+------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

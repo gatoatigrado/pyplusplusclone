@@ -1,0 +1,69 @@
+==================
+pydsc introduction
+==================
+
+--------------
+What is pydsc?
+--------------
+
+.. include:: ./definition.irest
+
+----------------------
+What it is useful for?
+----------------------
+
+The :mod:`pydsc <pydsc>` module checks documentation strings and comments for spelling errors.
+
+Usage example
+-------------
+
+It is very easy to start using :mod:`pydsc` module - just import it:
+
+.. code-block:: python
+
+  import pydsc
+
+and every module, that will be imported after it, in the current working directory
+will be checked. The errors will be printed to stdout.
+
+:mod:`pydsc` contains few functions, which helps you to configure the spell checker:
+  * to define your own "ignore" dictionary
+  * to define the error messages destination (file, stdout)
+  * to define set of files, which should be checked
+  * to ignore Sphinx specific words and code blocks
+
+For more information see :mod:`pydsc` module.
+
+------------
+Spell engine
+------------
+
+:mod:`pydsc` modules uses `PyEnchant`_ one.
+
+The `PyEnchant`_ package provides interface for different spell engines:
+    * ispell
+    * aspell
+    * OpenOffice
+
+--------
+Download
+--------
+
+http://sourceforge.net/project/showfiles.php?group_id=118209
+
+------------
+Installation
+------------
+
+python setup.py install
+
+---
+API
+---
+
+.. automodule:: pydsc
+    :undoc-members:
+    :members:
+
+
+.. _`PyEnchant`: http://pyenchant.sourceforge.net/

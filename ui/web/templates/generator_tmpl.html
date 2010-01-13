@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="static/favicon.ico" />
+    <link rel="icon" href="static/favicon.ico" />
+    <link rel="stylesheet" href="static/tabber.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="static/generator.css" type="text/css" media="screen"/>
+    <script type="text/javascript" src="static/tabber.js"></script>
+    <title>pygccxml &amp; py++ demo</title>
+</head>
+<body>
+    <h2>pygccxml &amp; py++ demo</h2>
+    <form action="/generated.html" method="post">
+        <p>In the following tabs you can configurate GCC-XML compiler. It is not a must</p>
+        <div class="tabber">
+            <div class="tabbertab">
+                <h2>Include directories</h2>
+                <p>List include directories( each directory on the new line ):</p>
+                <textarea name="COMPILER_INCLUDE_DIRECTORIES" rows="5" cols="80"></textarea>
+            </div>
+             <div class="tabbertab">
+                <h2>Preprocessor definitions</h2>
+                <p>Configure preprocessor ( define -D"HAS_XYZ=1" or undefine -U"_DEBUG" ):</p>
+                <textarea name="COMPILER_PREPROCESSOR_DEFINITIONS" rows="5" cols="80"></textarea>
+             </div>
+             <div class="tabbertab">
+                <h2>Advance</h2>
+                <p>Define GCC-XML command line arguments:</p>
+                <textarea name="COMPILER_CMD_ARGS" rows="5" cols="80" ></textarea>
+             </div>
+        </div>
+        <p>Add some text that describes purpose of the "Text" and "File"</p>
+        <div class="tabber">
+             <div class="tabbertab">
+                <h2>pygccxml demonstration</h2>
+                <p></p>
+                <input type="radio" name="GCCXML_TAKE_CODE_FROM" value="file" checked="checked" />Header file:<br/>
+                <input type="text" name="GCCXML_FILE_NAME"  style="min-width:93%;" /><br />
+                <input type="radio" name="GCCXML_TAKE_CODE_FROM" value="text"/>Code:<br/>
+                <textarea name="GCCXML_SOURCE_CODE" rows="15" cols="80" ></textarea>
+                <br/>
+                <hr />
+                <input type="submit" name="VIEW_XML" value="View XML" />
+                <a></a>
+                <input type="submit" name="VIEW_DECLS" value="View declarations tree" />
+            </div>
+            <div class="tabbertab">
+                <h2>Boost.Python code generator</h2>
+                <p></p>
+                <input type="radio" name="BPL_TAKE_CODE_FROM" value="file" checked="checked" />Header file:<br/>
+                <input type="text" name="BPL_FILE_NAME" style="min-width:93%;"/><br/>
+                <input type="radio" name="BPL_TAKE_CODE_FROM" value="text"/>Code:<br/>
+                <textarea name="BPL_SOURCE_CODE" rows="15" cols="80" ></textarea>
+                <br/>
+                <hr />
+                <input type="submit" name="GENERATE_BP_CODE" value="Generate code" />
+                <a></a>
+                <input type="submit" name="GENERATE_BP_PYPP_CODE" value="Generate Py++ code" />
+            </div>
+             <div class="tabbertab">
+                <h2>ctypes code generator</h2>
+                <p></p>
+                <a>Dynamic/shared library path:</a>
+                <input type="text" name="CTYPES_SHLIB_FILE_NAME" style="min-width:93%;" /><br/>
+                <!--input type="radio" name="CTYPES_TAKE_CODE_FROM" value="file" checked="checked" />Header file:<br/-->
+                <a>Header file:</a>
+                <input type="text" name="CTYPES_FILE_NAME"  style="min-width:93%;" /><br/>
+                <!--input type="radio" name="CTYPES_TAKE_CODE_FROM" value="text"/>Code:<br/-->
+                <!--textarea name="CTYPES_SOURCE_CODE" rows="15" cols="80" ></textarea-->
+                <!--br/-->
+                <hr/>
+                <input type="submit" name="GENERATE_CTYPES_CODE" value="Generate code" />
+                <a></a>
+                <input type="submit" name="GENERATE_CTYPES_PYPP_CODE" value="Generate Py++ code" />
+             </div>
+        </div>
+    </form>
+</body>
+</html>

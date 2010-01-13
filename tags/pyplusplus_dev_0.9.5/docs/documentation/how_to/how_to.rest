@@ -1,0 +1,88 @@
+============
+How to ... ?
+============
+
+.. contents:: Table of contents
+
+`How to deal with templates?`_
+
+.. _`How to deal with templates?` : ./templates.html
+
+`How to register an exception translation?`_
+
+.. _`How to register an exception translation?` : exception_translation.html
+
+`Fatal error C1204:Compiler limit: internal structure overflow`_
+
+.. _`Fatal error C1204:Compiler limit: internal structure overflow` : ./fatal_error_c1204.html
+
+`Absolute\\relative paths`_
+
+.. _`Absolute\\relative paths` : ./absolute_relative_paths.html
+
+`Generated file name is too long`_
+
+.. _`Generated file name is too long` : ./file_name_too_long.html
+
+-------------------------------------------------------
+How to expose function, which has hand-written wrapper?
+-------------------------------------------------------
+.. code-block:: C++
+
+  struct window_t{
+      ...
+      void get_size( int& height, int& widht ) const;
+  };
+
+You can not expose ``get_size`` function as is - ``int`` is immutable type in
+Python. So, we need to create a wrapper to the function:
+
+.. code-block:: C++
+
+  boost::python::tuple get_size_wrapper( const window_t& win ){
+      int height(0), width( 0 );
+      win.get_size( height, widht );
+      return boost::python::make_tuple( height, width );
+  }
+
+.. code-block:: C++
+
+  class_<window_t>( ... )
+      .def( "get_size", &get_size_wrapper )
+      ...
+  ;
+
+Now, after you know how this problem is solved. I will show how this solution
+could be integrated with `Py++`_.
+
+.. code-block:: Python
+
+  wrapper_code = \
+  """
+     static boost::python::tuple get_size( const window_t& win ){
+        int height(0), width( 0 );
+        win.get_size( height, width );
+        return boost::python::make_tuple( height, width );
+    }
+  """
+
+.. code-block:: Python
+
+  registration_code = 'def( "get_size", &%s::get_size )' % window.wrapper_alias
+
+.. code-block:: Python
+
+  mb = module_builder_t( ... )
+  window = mb.class_( "window_t" )
+  window.member_function( "get_size" ).exclude()
+  window.add_wrapper_code( wrapper_code )
+  window.registration_code( registration_code )
+
+That's all.
+
+
+
+.. _`Py++` : ./../../pyplusplus.html
+.. _`Boost.Python`: http://www.boost.org/libs/python/doc/index.html
+.. _`Python`: http://www.python.org
+.. _`GCC-XML`: http://www.gccxml.org
