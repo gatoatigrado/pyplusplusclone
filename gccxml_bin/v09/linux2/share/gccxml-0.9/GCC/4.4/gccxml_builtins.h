@@ -130,53 +130,23 @@ float       __complex__ __builtin_cpowf(float __complex__, float __complex__);
 double      __complex__ __builtin_cpow(double __complex__, double __complex__);
 long double __complex__ __builtin_cpowl(long double __complex__, long double __complex__);
 
-/* The GCC 4.3 parser hard-codes handling of these, so they do not
+/* The GCC 4.4 parser hard-codes handling of these, so they do not
    have real signatures.  */
+bool __builtin_fpclassify(...);
 bool __builtin_isfinite(...);
-bool __builtin_isinf(...);
-bool __builtin_isnan(...);
-bool __builtin_isnormal(...);
 bool __builtin_isgreater(...);
 bool __builtin_isgreaterequal(...);
+bool __builtin_isinf(...);
+bool __builtin_isinf_sign(...);
 bool __builtin_isless(...);
 bool __builtin_islessequal(...);
 bool __builtin_islessgreater(...);
+bool __builtin_isnan(...);
+bool __builtin_isnormal(...);
 bool __builtin_isunordered(...);
 bool __builtin_va_arg_pack(...);
 
-/*
-
-GCC 4.3 has the following additional builtin compile-time constant
-expressions:
-
-  __builtin_va_arg ( assignment-expression , type-id )
-  __builtin_offsetof ( type-id , offsetof-expression )
-
-  __has_nothrow_assign(T)
-  __has_nothrow_constructor(T)
-  __has_nothrow_copy(T)
-  __has_trivial_assign(T)
-  __has_trivial_constructor(T)
-  __has_trivial_copy(T)
-  __has_trivial_destructor(T)
-  __has_virtual_destructor(T)
-  __is_abstract(T)
-  __is_base_of(Tbase,Tderived)
-  __is_class(T)
-  __is_convertible_to(Tfrom,Tto)
-  __is_empty(T)
-  __is_enum(T)
-  __is_pod(T)
-  __is_polymorphic(T)
-  __is_union(T)
-
-In order to really support these we would have to update GCC-XML's
-internal parser to be GCC 4.3.  Since this has not yet been done we
-get most of the way by defining some of these as macros with fake
-answers.  It is enough to get through GCC 4.3's C++98 standard
-library.
-*/
-
+/* We fake some constant expressions from GCC 4.4 parser.  */
 #define __is_pod(x) false
 #define __is_empty(x) false
 #define __has_trivial_destructor(x) false
