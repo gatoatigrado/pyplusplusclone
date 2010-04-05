@@ -26,7 +26,9 @@
         <div class="bodywrapper">
       {%- endif %}{% endif %}
           <div class="body">
-            {% block body %} {% endblock %} 
+            {% block body %} {% endblock %}
+            {% include "disqus_any.html" %}
+            {% include "disqus_before_body_ends.html" %}
             <hr width=60%>
             {% include "bottom_ad_unit.html" %}
             {% include "in_text_ads.html" %}
