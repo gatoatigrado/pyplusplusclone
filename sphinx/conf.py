@@ -30,6 +30,8 @@ project_root = os.path.abspath('..')
 doc_project_root = os.path.abspath('.')
 packages = ( 'pydsc', 'pygccxml', 'pyplusplus' )
 
+sys.path.append( doc_project_root )
+
 has_true_links = 'linux' in sys.platform
 for pkg in packages:
     target = os.path.join( doc_project_root, pkg )
